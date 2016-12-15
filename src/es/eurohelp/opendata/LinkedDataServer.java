@@ -1,22 +1,33 @@
 package es.eurohelp.opendata;
 
 import java.io.IOException;
+import java.net.URLEncoder;
+import java.util.Enumeration;
+import java.util.Iterator;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.apache.http.HttpEntity;
+import org.apache.http.client.methods.CloseableHttpResponse;
+import org.apache.http.client.methods.HttpGet;
+import org.apache.http.impl.client.CloseableHttpClient;
+import org.apache.http.impl.client.HttpClients;
+import org.apache.http.util.EntityUtils;
+
 /**
- * Servlet implementation class LinkedDataServer
+ * LinkedDataServer Prototype, partly inspired by https://github.com/clarkparsia/sparql-proxy/blob/master/src/com/clarkparsia/sparql/SparqlEndpointProxy.java
+ * 
+ * @author Mikel Egaña Aranguren
+ * 
  */
 @WebServlet({ "/resource/*", "/class/*", "/property/*", "/value/*" })
 public class LinkedDataServer extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
-    /**
-     * Default constructor. 
-     */
     public LinkedDataServer() {}
 
 	/**
@@ -25,20 +36,36 @@ public class LinkedDataServer extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		response.getWriter().append("Served at: ").append(request.getContextPath());
 		response.getWriter().append(request.getHeader("Accept"));
-	}
+		
+		// TODO: map external and internal URIs
+		
+		String query = "DESCRIBE <http://opendata.euskadi.eus/AV-GASTEIZ/2016-02-06/PM10-AirQuality>";
+		String endpoint = "http://ckan.eurohelp.es:7200/repositories/opendata-euskadi?query=";
+		String complete_query = endpoint  + URLEncoder.encode(query);
+		
+		
+		CloseableHttpClient httpclient = HttpClients.createDefault();
+		HttpGet httpGet = new HttpGet(complete_query);
+		
+		Enumeration<String> req_headers = request.getHeaderNames();
+		while (req_headers.hasMoreElements()) {
+			String header_name = req_headers.nextElement();
+			String header_value = request.getHeader(header_name);
+			httpGet.setHeader(header_name, header_value);
+		}
+		
 
-	/**
-	 * @see HttpServlet#doHead(HttpServletRequest, HttpServletResponse)
-	 */
-	protected void doHead(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
+		// TODO: redirect server response to response
+		CloseableHttpResponse triple_store_response = httpclient.execute(httpGet);
+		HttpEntity entity = triple_store_response.getEntity();
+		String entity_string = EntityUtils.toString(entity);
+		Iterator<?> i = triple_store_response.headerIterator();
+		while (i.hasNext()) {
+			System.out.println(i.next());
+		}
+		
+		// TODO: render in proper HTML if no accept header or accept header something like application/x-ms-application, image/jpeg, application/xaml+xml, image/gif, image/pjpeg, application/x-ms-xbap, application/vnd.ms-excel, application/vnd.ms-powerpoint, application/msword, */*
+		System.out.println(entity_string);
+		triple_store_response.close();
 	}
-
-	/**
-	 * @see HttpServlet#doOptions(HttpServletRequest, HttpServletResponse)
-	 */
-	protected void doOptions(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-	}
-
 }

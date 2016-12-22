@@ -10,4 +10,12 @@
 	<welcome-file-list>
 		<welcome-file>index.html</welcome-file>
 	</welcome-file-list>
+	<context-param>
+    	<param-name>internal-uri-base</param-name>
+    	<param-value>http://opendata.euskadi.eus/</param-value>
+	</context-param>
+	<context-param>
+    	<param-name>sparql-endpoint-query-url</param-name>
+    	<param-value>http://ckan.eurohelp.es:7200/repositories/opendata-euskadi?query=</param-value>
+	</context-param>
 </web-app>

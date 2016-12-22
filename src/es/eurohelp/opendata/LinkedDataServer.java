@@ -68,6 +68,8 @@ public class LinkedDataServer extends HttpServlet {
 			out.println("<p>PathInfo: " + request.getPathInfo() + "</p>");
 			out.println("<p>Context Path: " + request.getContextPath() + "</p>");
 			out.println("<p>Accept header: " + request.getHeader("Accept") + "</p>");
+			out.println("<p>internal-uri-base: " + getServletContext().getInitParameter("internal-uri-base") + "</p>");
+			out.println("<p>sparql-endpoint-query-url: " + getServletContext().getInitParameter("sparql-endpoint-query-url") + "</p>");
 			out.println("</body>");
 			out.println("</html>");
 		} finally {

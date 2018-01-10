@@ -1,4 +1,4 @@
-# LinkedDataServer
+# LinkedDataServer (this prototype is no longer)
 A prototype for a Linked Data server
 
 * TODO: map external and internal URIs

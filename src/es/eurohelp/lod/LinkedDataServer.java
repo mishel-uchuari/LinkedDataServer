@@ -20,20 +20,13 @@ import org.apache.http.impl.client.HttpClients;
 import org.apache.http.util.EntityUtils;
 
 /**
- * LinkedDataServer Prototype, partly inspired by
- * https://github.com/clarkparsia/sparql-proxy/blob/master/src/com/clarkparsia/
- * sparql/SparqlEndpointProxy.java
  * 
- * @author Mikel Ega�a Aranguren
+ * @author Mikel Egaña Aranguren
  * 
  */
 
 //@WebServlet({ "/*", "/resource/*", "/class/*", "/property/*", "/value/*" })
 public class LinkedDataServer extends HttpServlet {
-	private static final long serialVersionUID = 1L;
-
-	public LinkedDataServer() {
-	}
 
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse

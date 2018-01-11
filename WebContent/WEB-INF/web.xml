@@ -7,22 +7,11 @@
 	<display-name>Linked Data Server</display-name>
 	<servlet>
 		<servlet-name>DefaultServlet</servlet-name>
-		<servlet-class>es.eurohelp.lod.LinkedDataServer</servlet-class>
+		<servlet-class>es.eurohelp.lod.DefaultServlet</servlet-class>
 		<load-on-startup>1</load-on-startup>
 	</servlet>
 	<servlet-mapping>
 		<servlet-name>DefaultServlet</servlet-name>
 		<url-pattern>/id/*</url-pattern>
 	</servlet-mapping>
-	<welcome-file-list>
-		<welcome-file>index.html</welcome-file>
-	</welcome-file-list>
-	<context-param>
-    	<param-name>internal-uri-base</param-name>
-    	<param-value>http://opendata.euskadi.eus/</param-value>
-	</context-param>
-	<context-param>
-    	<param-name>sparql-endpoint-query-url</param-name>
-    	<param-value>http://ckan.eurohelp.es:7200/repositories/opendata-euskadi?query=</param-value>
-	</context-param>
 </web-app>

@@ -5,8 +5,7 @@ WORKDIR /opt
 RUN wget http://ftp.cixug.es/apache/tomcat/tomcat-8/v8.0.48/bin/apache-tomcat-8.0.48.tar.gz
 RUN tar -xvzf apache-tomcat-8.0.48.tar.gz
 RUN rm apache-tomcat-8.0.48.tar.gz
-RUN rm -rf apache-tomcat-8.0.48/webapps/ROOT
-COPY target/ROOT.war apache-tomcat-8.0.48/webapps/ROOT.war
+COPY target/data.war apache-tomcat-8.0.48/webapps/data.war
 
 CMD apache-tomcat-8.0.48/bin/catalina.sh run 
 

@@ -1,4 +1,4 @@
-package es.eurohelp.lod;
+package es.eurohelp.lod.server;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -45,7 +45,6 @@ public class DefaultServlet extends HttpServlet {
 	private void goToWeb(HttpServletRequest req, HttpServletResponse resp) throws Exception {
         InputStream in = FileUtils.getInstance().getInputStream("LinkedDataServerConfig.yml");
         HashMap<String, String> keysValues = (HashMap<String, String>) YAMLUtils.parseSimpleYAML(in);
-        LOGGER.info(keysValues.get("defaultpage"));
 		getServletContext().getRequestDispatcher(keysValues.get("defaultpage")).forward
            (req, resp); 
 	}

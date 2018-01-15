@@ -1,1 +1,3 @@
 defaultpage: /pages/ldserver.html
+#SPARQLendpoint: http://localhost:5000/namespace/wikidata-ejie/sparql
+SPARQLendpoint: http://172.16.0.81:58080/blazegraph/namespace/wikidata-ejie/sparql

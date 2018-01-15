@@ -6,7 +6,7 @@
 	<display-name>Linked Data Server</display-name>
 	<servlet>
 		<servlet-name>DefaultServlet</servlet-name>
-		<servlet-class>es.eurohelp.lod.DefaultServlet</servlet-class>
+		<servlet-class>es.eurohelp.lod.server.DefaultServlet</servlet-class>
 		<load-on-startup>1</load-on-startup>
 	</servlet>
 	<servlet-mapping>
@@ -16,7 +16,7 @@
 	<!-- sparql servlet -->
 	<servlet>
 		<servlet-name>SparqlServlet</servlet-name>
-		<servlet-class>es.eurohelp.lod.SparqlServlet</servlet-class>
+		<servlet-class>es.eurohelp.lod.server.SparqlServlet</servlet-class>
 		<load-on-startup>1</load-on-startup>
 	</servlet>
 	<servlet-mapping>

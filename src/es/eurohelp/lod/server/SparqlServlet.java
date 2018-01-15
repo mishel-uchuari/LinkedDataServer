@@ -76,5 +76,4 @@ public class SparqlServlet extends HttpServlet {
 		getServletContext().getRequestDispatcher("/pages/endpoint.jsp").forward
            (req, resp); 
 	}
-	
 }

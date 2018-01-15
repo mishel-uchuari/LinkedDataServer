@@ -12,6 +12,6 @@
 	</servlet>
 	<servlet-mapping>
 		<servlet-name>DefaultServlet</servlet-name>
-		<url-pattern>/id/*</url-pattern>
+		<url-pattern></url-pattern>
 	</servlet-mapping>
 </web-app>

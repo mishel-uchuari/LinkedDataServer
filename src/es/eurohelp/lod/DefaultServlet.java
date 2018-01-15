@@ -12,7 +12,6 @@ import javax.servlet.http.HttpServletResponse;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-import es.eurohelp.lod.aldapa.core.Manager;
 import es.eurohelp.lod.aldapa.util.FileUtils;
 import es.eurohelp.lod.aldapa.util.YAMLUtils;
 
@@ -25,9 +24,7 @@ public class DefaultServlet extends HttpServlet {
 	
 	private static final long serialVersionUID = 1031422249396784970L;
 	
-	
 	private static final Logger LOGGER = LogManager.getLogger(DefaultServlet.class);
-	
 	
 	@Override
 	public void doGet(HttpServletRequest req, HttpServletResponse resp)
@@ -39,8 +36,6 @@ public class DefaultServlet extends HttpServlet {
 		}
 	}
 
-	
-	
 	/**
 	 * Redirects to initial page
 	 * @param req the request
@@ -48,8 +43,9 @@ public class DefaultServlet extends HttpServlet {
 	 * @throws Exception exception
 	 */
 	private void goToWeb(HttpServletRequest req, HttpServletResponse resp) throws Exception {
-        InputStream in = FileUtils.getInstance().getInputStream("configuration.yml");
+        InputStream in = FileUtils.getInstance().getInputStream("LinkedDataServerConfig.yml");
         HashMap<String, String> keysValues = (HashMap<String, String>) YAMLUtils.parseSimpleYAML(in);
+        LOGGER.info(keysValues.get("defaultpage"));
 		getServletContext().getRequestDispatcher(keysValues.get("defaultpage")).forward
            (req, resp); 
 	}

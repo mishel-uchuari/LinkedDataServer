@@ -41,7 +41,7 @@ public class SparqlServlet extends HttpServlet {
 			}else{
 		        InputStream in = FileUtils.getInstance().getInputStream("LinkedDataServerConfig.yml");
 		        HashMap<String, String> keysValues = (HashMap<String, String>) YAMLUtils.parseSimpleYAML(in);
-				HttpManager.getInstance().redirectGetRequest(req, resp, keysValues.get("SPARQLendpoint"), null);
+ 
 			}
 		} catch (Exception e) {
 			throw new ServletException(e);

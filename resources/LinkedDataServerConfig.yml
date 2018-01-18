@@ -1,5 +1,7 @@
 defaultpage: /pages/ldserver.html
-SPARQLendpoint: http://haproxy/blazegraph/sparql
-#SPARQLendpoint: http://172.16.0.81:58080/blazegraph/namespace/replicate/sparql
-#SPARQLendpoint: http://172.16.0.81:58080/blazegraph/sparql
-#SPARQLendpoint: http://localhost:5000/namespace/replicate/sparql
+#triplestore: http://localhost:9999/blazegraph/namespace/replicate/sparql
+triplestore: http://haproxy/blazegraph/sparql
+SPARQLendpoint: sparql
+
+
+

@@ -41,7 +41,7 @@ public class SparqlServlet extends HttpServlet {
 			}else{
 		        InputStream in = FileUtils.getInstance().getInputStream("LinkedDataServerConfig.yml");
 		        HashMap<String, String> keysValues = (HashMap<String, String>) YAMLUtils.parseSimpleYAML(in);
- 
+		        HttpManager.getInstance().redirectGetRequest(req, resp, keysValues.get("triplestore"), null);
 			}
 		} catch (Exception e) {
 			throw new ServletException(e);
@@ -56,7 +56,7 @@ public class SparqlServlet extends HttpServlet {
 			}else{
 		        InputStream in = FileUtils.getInstance().getInputStream("LinkedDataServerConfig.yml");
 		        HashMap<String, String> keysValues = (HashMap<String, String>) YAMLUtils.parseSimpleYAML(in);
-				HttpManager.getInstance().redirectPostRequest(req,resp, keysValues.get("SPARQLendpoint"));
+				HttpManager.getInstance().redirectPostRequest(req,resp, keysValues.get("triplestore"));
 			}
 		} catch (Exception e) {
 			throw new ServletException(e);

@@ -23,4 +23,14 @@
 		<servlet-name>SparqlServlet</servlet-name>
 		<url-pattern>/sparql</url-pattern>
 	</servlet-mapping>
+	<!-- resource servlet -->
+	<servlet>
+		<servlet-name>ResourceServlet</servlet-name>
+		<servlet-class>es.eurohelp.lod.server.ResourceServlet</servlet-class>
+		<load-on-startup>1</load-on-startup>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>ResourceServlet</servlet-name>
+		<url-pattern>/id/*</url-pattern>
+	</servlet-mapping>
 </web-app>

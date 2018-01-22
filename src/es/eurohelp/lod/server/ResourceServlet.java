@@ -1,5 +1,6 @@
 package es.eurohelp.lod.server;
 
+import java.io.ByteArrayInputStream;
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
@@ -54,9 +55,24 @@ public class ResourceServlet extends HttpServlet {
 			if (accept.contains(MIMEtype.HTML.mimetypevalue())) {
 				accept = "application/rdf+xml";
 				
-//				POST http://localhost:9999/blazegraph/namespace/replicate/sparql?query=DESCRIBE+%3Chttp%3A%2F%2Fdonostia.eus%2Fdata%2Fid%2Fmedio-ambiente%2Fmedicion%2Furumea-txominenea-riesgo-2017-11-10-02-10%3E
-//				Accept: application/rdf+xml
+				HttpResponse response = HttpManager.getInstance().doGetRequest(req, null, url, accept);
 				
+				Source             text        = new StreamSource(response.getEntity().getContent());
+				
+				ClassLoader classLoader = Thread.currentThread().getContextClassLoader();
+			    InputStream stream = classLoader.getResourceAsStream("urumea.xsl");
+				
+			    
+			    LOGGER.info(stream.toString());
+			    
+			    Source             xslt        = new StreamSource(stream);
+			    TransformerFactory factory     = TransformerFactory.newInstance();
+			    Transformer        transformer = factory.newTransformer(xslt); 
+			    transformer.transform(text, new StreamResult(new File("output.html")));
+				
+//				POST http://localhost:9999/blazegraph/namespace/replicate/sparql?query=DESCRIBE+%3Chttp%3A%2F%2Fdonostia.eus%2Fdata%2Fid%2Fmedio-ambiente%2Fmedicion%2Furumea-txominenea-riesgo-2017-11-10-02-10%3E
+//			    http://localhost:8080/ROOT/id/medio-ambiente/medicion/urumea-txominenea-riesgo-2017-11-10-02-10
+			    
 //				https://gist.github.com/serge1/9307868
 //			    Source             xslt        = new StreamSource(xsl);
 //			    Source             text        = new StreamSource(xml);

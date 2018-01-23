@@ -27,7 +27,8 @@
 	<xsl:template match="rdf:RDF//rdf:Description/*">
 		<b><xsl:value-of select="name()" /></b> : 
 			<xsl:value-of select="." />
-			<xsl:value-of select="./@rdf:resource" />
+			<xsl:variable name="href"><xsl:value-of select="./@rdf:resource" /></xsl:variable>
+			<a href="{$href}"><xsl:value-of select="$href" /></a>
 		<br />
 	</xsl:template>
 </xsl:stylesheet>

@@ -3,7 +3,8 @@ triplestore: http://localhost:9999/blazegraph/namespace/replicate/sparql
 #triplestore: http://haproxy/blazegraph/sparql
 SPARQLendpoint: sparql
 base: http://donostia.eus/data
-SPARQLretrieveResourceQuery: DESCRIBE <{0}>
+SPARQLRetrieveResourceQuery: DESCRIBE <{0}>
+xslt: replicate.xsl
 
 
 

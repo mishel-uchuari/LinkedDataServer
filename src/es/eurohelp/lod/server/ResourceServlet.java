@@ -57,7 +57,7 @@ public class ResourceServlet extends HttpServlet {
 			String resourceURI = req.getRequestURI()
 					.substring(req.getRequestURI().indexOf(req.getContextPath()) + req.getContextPath().length());
 			String completeURI = base + resourceURI;
-			String query = MessageFormat.format(keysValues.get("SPARQLretrieveResourceQuery"), completeURI);
+			String query = MessageFormat.format(keysValues.get("SPARQLRetrieveResourceQuery"), completeURI);
 			String url = triplestore + "?query=" + URLEncoder.encode(query, "UTF-8");
 			if (accept.contains(MIMEtype.HTML.mimetypevalue())) {
 				accept = "application/rdf+xml";
@@ -75,7 +75,7 @@ public class ResourceServlet extends HttpServlet {
 
 				Source             text        = new StreamSource(blzgResponse.getEntity().getContent());				
 				ClassLoader classLoader = Thread.currentThread().getContextClassLoader();
-				InputStream stream = classLoader.getResourceAsStream("urumea.xsl");
+				InputStream stream = classLoader.getResourceAsStream(keysValues.get("xslt"));
 			    Source             xslt        = new StreamSource(stream);
 			    
 			    TransformerFactory factory     = TransformerFactory.newInstance();

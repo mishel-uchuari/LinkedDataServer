@@ -7,14 +7,16 @@
 	<xsl:output method="html" encoding="utf-8" />
 	<xsl:template match="/">
 		<html>
+			<head><title><xsl:value-of select="//rdfs:label"/></title></head>
 			<body>
 					<xsl:apply-templates />
 			</body>
 		</html>
 	</xsl:template>
+	
 	<xsl:template match="rdf:RDF//rdf:Description">
-		<p>About: <xsl:value-of select="rdfs:label" /></p>
-		<p>Value: <xsl:value-of select="qb:obsValue" /></p>
-		<p>Type: <xsl:value-of select="rdf:type/@rdf:resource" /></p>
+		<h1>About: <xsl:value-of select="rdfs:label" /></h1>
+		<h1>Type: <xsl:value-of select="rdf:type/@rdf:resource" /></h1>
+		<br /><xsl:value-of select="."/><br />	
 	</xsl:template>
 </xsl:stylesheet>

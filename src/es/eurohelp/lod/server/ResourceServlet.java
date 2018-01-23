@@ -1,8 +1,7 @@
 package es.eurohelp.lod.server;
 
-import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
-import java.io.File;
+
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.PrintWriter;
@@ -21,13 +20,10 @@ import javax.xml.transform.TransformerFactory;
 import javax.xml.transform.stream.StreamResult;
 import javax.xml.transform.stream.StreamSource;
 
-import org.apache.http.Header;
-import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
 import org.apache.http.client.HttpClient;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.impl.client.DefaultHttpClient;
-import org.apache.http.util.EntityUtils;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -71,7 +67,6 @@ public class ResourceServlet extends HttpServlet {
 				HttpGet httpget = new HttpGet(url);
 				httpget.setHeader("Accept", "application/rdf+xml");
 				HttpResponse blzgResponse = httpclient.execute(httpget);
-				
 
 				Source             text        = new StreamSource(blzgResponse.getEntity().getContent());				
 				ClassLoader classLoader = Thread.currentThread().getContextClassLoader();
@@ -85,23 +80,16 @@ public class ResourceServlet extends HttpServlet {
 			    StreamResult result = new StreamResult(baos);
 			    transformer.transform(text, result);
 			    
-			    
-			    
 			    resp.setContentType("text/html;charset=UTF-8");
 
 				PrintWriter out = resp.getWriter();
 
-
 				try {
 					out.print(result.getOutputStream().toString());
 				} finally {
-					out.close(); // Always close the output writer
+					out.close(); 
 				}
 			    
-				
-				// TODO: integrar XSL transformer
-				// TODO: hacer el XSL generico (ver PHI base)
-				
 			}
 			else{
 				// Throw 404 if RDF empty?

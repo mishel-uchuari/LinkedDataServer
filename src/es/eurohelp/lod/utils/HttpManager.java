@@ -279,18 +279,17 @@ public class HttpManager {
 	}
 
 	public HttpResponse doSimpleGetRequest(String url, String accept) throws ClientProtocolException, IOException {
-		HttpClient httpclient = null;
-		try {
-			httpclient = new DefaultHttpClient();
-			HttpGet httpget = new HttpGet(url);
-			httpget.setHeader("Accept", accept);
-			return httpclient.execute(httpget);
-		} finally {
-			httpclient.getConnectionManager().closeExpiredConnections();
-			httpclient.getConnectionManager().shutdown();
-		}
+		HttpClient httpclient = new DefaultHttpClient();
+		HttpGet httpget = new HttpGet(url);
+		httpget.setHeader("Accept", accept);
+		return httpclient.execute(httpget);
 	}
 
+	public HttpResponse doSimpleGetRequest(String url) throws ClientProtocolException, IOException {
+		HttpClient httpclient = new DefaultHttpClient();
+		HttpGet httpget = new HttpGet(url);
+		return httpclient.execute(httpget);
+	}
 	/**
 	 * 
 	 * @param theReq

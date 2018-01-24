@@ -20,7 +20,9 @@ import javax.xml.transform.TransformerFactory;
 import javax.xml.transform.stream.StreamResult;
 import javax.xml.transform.stream.StreamSource;
 
+import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
+import org.apache.http.util.EntityUtils;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -37,10 +39,7 @@ public class ResourceServlet extends HttpServlet {
 
 	@Override
 	public void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		// DESCRIBE
-		// <http://donostia.eus/data/id/medio-ambiente/medicion/urumea-txominenea-riesgo-2017-11-10-02-10>
 		try {
-
 			InputStream in = FileUtils.getInstance().getInputStream("LinkedDataServerConfig.yml");
 			HashMap<String, String> configKeysValues = (HashMap<String, String>) YAMLUtils.parseSimpleYAML(in);
 			String base = configKeysValues.get("base");
@@ -49,44 +48,53 @@ public class ResourceServlet extends HttpServlet {
 			String resourceURI = req.getRequestURI()
 					.substring(req.getRequestURI().indexOf(req.getContextPath()) + req.getContextPath().length());
 			String completeURI = base + resourceURI;
-			String query = MessageFormat.format(configKeysValues.get("SPARQLRetrieveResourceQuery"), completeURI);
-			String url = triplestore + "?query=" + URLEncoder.encode(query, "UTF-8");
-			if (accept.contains(MIMEtype.HTML.mimetypevalue())) {
-				accept = "application/rdf+xml";
-				
-//				POST http://localhost:9999/blazegraph/namespace/replicate/sparql?query=DESCRIBE+%3Chttp%3A%2F%2Fdonostia.eus%2Fdata%2Fid%2Fmedio-ambiente%2Fmedicion%2Furumea-txominenea-riesgo-2017-11-10-02-10%3E
-//			    http://localhost:8080/ROOT/id/medio-ambiente/medicion/urumea-txominenea-riesgo-2017-11-10-02-10
-				
-//				HttpResponse response = HttpManager.getInstance().doGetRequest(req, null, url, accept);
-								
-				HttpResponse blzgResponse = HttpManager.getInstance().doSimpleGetRequest(url, "application/rdf+xml");
 
-				Source             text        = new StreamSource(blzgResponse.getEntity().getContent());				
-				ClassLoader classLoader = Thread.currentThread().getContextClassLoader();
-				InputStream stream = classLoader.getResourceAsStream(configKeysValues.get("xslt"));
-			    Source             xslt        = new StreamSource(stream);
-			    
-			    TransformerFactory factory     = TransformerFactory.newInstance();
-			    Transformer        transformer = factory.newTransformer(xslt); 
-			    
-			    ByteArrayOutputStream baos = new ByteArrayOutputStream();
-			    StreamResult result = new StreamResult(baos);
-			    transformer.transform(text, result);
-			    
-			    resp.setContentType("text/html;charset=UTF-8");
+			String resourceExistsQuery = MessageFormat.format(configKeysValues.get("SPARQLASKResourceQuery"),
+					completeURI);
 
-				PrintWriter out = resp.getWriter();
+			String resourceExistsURL = triplestore + "?query=" + URLEncoder.encode(resourceExistsQuery, "UTF-8");
+			HttpResponse resourceExistsURLblzgResponse = HttpManager.getInstance()
+					.doSimpleGetRequest(resourceExistsURL);
+			HttpEntity resourceExistsURLblzgEntity = resourceExistsURLblzgResponse.getEntity();
+			String askResult = EntityUtils.toString(resourceExistsURLblzgEntity);
+			LOGGER.info(resourceURI + askResult);
+			if (askResult.contains("false")) {
+				resp.sendError(HttpServletResponse.SC_NOT_FOUND);
+			} else {
 
-				try {
-					out.print(result.getOutputStream().toString());
-				} finally {
-					out.close(); 
+				String query = MessageFormat.format(configKeysValues.get("SPARQLRetrieveResourceQuery"), completeURI);
+				String url = triplestore + "?query=" + URLEncoder.encode(query, "UTF-8");
+				if (accept.contains(MIMEtype.HTML.mimetypevalue())) {
+					accept = "application/rdf+xml";
+					HttpResponse blzgResponse = HttpManager.getInstance().doSimpleGetRequest(url,
+							"application/rdf+xml");
+					HttpEntity blzgEntity = blzgResponse.getEntity();
+
+					Source text = new StreamSource(blzgEntity.getContent());
+					ClassLoader classLoader = Thread.currentThread().getContextClassLoader();
+					InputStream stream = classLoader.getResourceAsStream(configKeysValues.get("xslt"));
+					Source xslt = new StreamSource(stream);
+
+					TransformerFactory factory = TransformerFactory.newInstance();
+					Transformer transformer = factory.newTransformer(xslt);
+
+					ByteArrayOutputStream baos = new ByteArrayOutputStream();
+					StreamResult result = new StreamResult(baos);
+					transformer.transform(text, result);
+
+					resp.setContentType("text/html;charset=UTF-8");
+
+					PrintWriter out = resp.getWriter();
+
+					try {
+						out.print(result.getOutputStream().toString());
+					} finally {
+						out.close();
+					}
+
+				} else {
+					HttpManager.getInstance().redirectGetRequest(req, resp, url, accept);
 				}
-			    
-			}
-			else{
-				// Throw 404 if RDF empty?
-				HttpManager.getInstance().redirectGetRequest(req, resp, url, accept);
 			}
 		} catch (Exception e) {
 			throw new ServletException(e);

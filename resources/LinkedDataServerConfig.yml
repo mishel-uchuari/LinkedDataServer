@@ -4,6 +4,7 @@ triplestore: http://localhost:9999/blazegraph/namespace/replicate/sparql
 SPARQLendpoint: sparql
 base: http://donostia.eus/data
 SPARQLRetrieveResourceQuery: DESCRIBE <{0}>
+SPARQLASKResourceQuery: ASK '{' '{' <{0}> ?p ?o '}' UNION  '{' ?s ?p <{0}> '}' '}'
 xslt: replicate.xsl
 host: http://localhost:8080/ROOT/
 #host: http://localhost:8080/data/

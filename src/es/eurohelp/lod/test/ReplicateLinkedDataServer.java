@@ -24,6 +24,7 @@ public class ReplicateLinkedDataServer {
 	private static HashMap<String, String> configKeysValues = null;	
 	private static String host = null;
 	private static String resource = "id/medio-ambiente/medicion/urumea-txominenea-riesgo-2017-11-10-02-10";
+	private static String nonexistentresource = "id/trololo";
 
 	@BeforeClass
 	public static void setUpBeforeClass() throws Exception {
@@ -56,6 +57,19 @@ public class ReplicateLinkedDataServer {
 	public void GETResourceTURTLE() {
 		try {
 			HttpResponse response = HttpManager.getInstance().doSimpleGetRequest(host + resource, MIMEtype.Turtle.mimetypevalue());
+			assertEquals(200, response.getStatusLine().getStatusCode());
+		} catch (IOException e) {
+			LOGGER.error(e);
+		}
+	}
+	
+	@Test
+	public void GETNonExistentResource() {
+		try {
+			HttpResponse response = HttpManager.getInstance().doSimpleGetRequest(host + nonexistentresource, MIMEtype.RDFXML.mimetypevalue());
+			
+			
+			
 			assertEquals(200, response.getStatusLine().getStatusCode());
 		} catch (IOException e) {
 			LOGGER.error(e);

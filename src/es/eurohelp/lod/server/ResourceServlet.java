@@ -57,7 +57,6 @@ public class ResourceServlet extends HttpServlet {
 					.doSimpleGetRequest(resourceExistsURL);
 			HttpEntity resourceExistsURLblzgEntity = resourceExistsURLblzgResponse.getEntity();
 			String askResult = EntityUtils.toString(resourceExistsURLblzgEntity);
-			LOGGER.info(resourceURI + askResult);
 			if (askResult.contains("false")) {
 				resp.sendError(HttpServletResponse.SC_NOT_FOUND);
 			} else {

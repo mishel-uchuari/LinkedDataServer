@@ -12,7 +12,7 @@
 	<repositories>
 		<repository>
 			<id>Eurohelp-nexus</id>
-			<url>http://integracion.eurohelp.es:8081/nexus/content/repositories/thirdparty/</url>
+			<url>http://integracion.eurohelp.es:8081/nexus/content/repositories/eurohelp-releases/</url>
 		</repository>
 	</repositories>
 	<dependencies>

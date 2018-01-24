@@ -5,6 +5,8 @@ SPARQLendpoint: sparql
 base: http://donostia.eus/data
 SPARQLRetrieveResourceQuery: DESCRIBE <{0}>
 xslt: replicate.xsl
+host: http://localhost:8080/ROOT/
+#host: http://localhost:8080/data/
 
 
 

@@ -21,9 +21,6 @@ import javax.xml.transform.stream.StreamResult;
 import javax.xml.transform.stream.StreamSource;
 
 import org.apache.http.HttpResponse;
-import org.apache.http.client.HttpClient;
-import org.apache.http.client.methods.HttpGet;
-import org.apache.http.impl.client.DefaultHttpClient;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -31,7 +28,6 @@ import es.eurohelp.lod.aldapa.util.FileUtils;
 import es.eurohelp.lod.aldapa.util.YAMLUtils;
 import es.eurohelp.lod.utils.HttpManager;
 import es.eurohelp.lod.utils.MIMEtype;
-import es.eurohelp.lod.utils.Methodtype;
 
 public class ResourceServlet extends HttpServlet {
 
@@ -46,14 +42,14 @@ public class ResourceServlet extends HttpServlet {
 		try {
 
 			InputStream in = FileUtils.getInstance().getInputStream("LinkedDataServerConfig.yml");
-			HashMap<String, String> keysValues = (HashMap<String, String>) YAMLUtils.parseSimpleYAML(in);
-			String base = keysValues.get("base");
-			String triplestore = keysValues.get("triplestore");
+			HashMap<String, String> configKeysValues = (HashMap<String, String>) YAMLUtils.parseSimpleYAML(in);
+			String base = configKeysValues.get("base");
+			String triplestore = configKeysValues.get("triplestore");
 			String accept = req.getHeader("Accept");
 			String resourceURI = req.getRequestURI()
 					.substring(req.getRequestURI().indexOf(req.getContextPath()) + req.getContextPath().length());
 			String completeURI = base + resourceURI;
-			String query = MessageFormat.format(keysValues.get("SPARQLRetrieveResourceQuery"), completeURI);
+			String query = MessageFormat.format(configKeysValues.get("SPARQLRetrieveResourceQuery"), completeURI);
 			String url = triplestore + "?query=" + URLEncoder.encode(query, "UTF-8");
 			if (accept.contains(MIMEtype.HTML.mimetypevalue())) {
 				accept = "application/rdf+xml";
@@ -62,15 +58,12 @@ public class ResourceServlet extends HttpServlet {
 //			    http://localhost:8080/ROOT/id/medio-ambiente/medicion/urumea-txominenea-riesgo-2017-11-10-02-10
 				
 //				HttpResponse response = HttpManager.getInstance().doGetRequest(req, null, url, accept);
-				
-				HttpClient httpclient = new DefaultHttpClient();
-				HttpGet httpget = new HttpGet(url);
-				httpget.setHeader("Accept", "application/rdf+xml");
-				HttpResponse blzgResponse = httpclient.execute(httpget);
+								
+				HttpResponse blzgResponse = HttpManager.getInstance().doSimpleGetRequest(url, "application/rdf+xml");
 
 				Source             text        = new StreamSource(blzgResponse.getEntity().getContent());				
 				ClassLoader classLoader = Thread.currentThread().getContextClassLoader();
-				InputStream stream = classLoader.getResourceAsStream(keysValues.get("xslt"));
+				InputStream stream = classLoader.getResourceAsStream(configKeysValues.get("xslt"));
 			    Source             xslt        = new StreamSource(stream);
 			    
 			    TransformerFactory factory     = TransformerFactory.newInstance();

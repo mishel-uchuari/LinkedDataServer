@@ -13,6 +13,7 @@ import org.apache.http.HttpResponse;
 import org.apache.http.util.EntityUtils;
 
 import org.apache.http.NameValuePair;
+import org.apache.http.message.BasicHeader;
 import org.apache.http.message.BasicNameValuePair;
 
 import org.apache.logging.log4j.LogManager;
@@ -50,6 +51,7 @@ public class ReplicateLinkedDataServer {
 		configKeysValues = (HashMap<String, String>) YAMLUtils.parseSimpleYAML(in);
 		host = configKeysValues.get("host");
 		hostsparql = host + configKeysValues.get("SPARQLendpoint");
+//		hostsparql = "http://localhost:9999/blazegraph/namespace/replicate/sparql";
 	}
 
 	@Test
@@ -117,16 +119,18 @@ public class ReplicateLinkedDataServer {
 		try {
 			List<NameValuePair> params = new ArrayList<NameValuePair>();
 		    params.add(new BasicNameValuePair("query", sparqlSELECT));
-			HttpResponse response = HttpManager.getInstance().doSimplePostRequest(hostsparql, MIMEtype.SPARQLXMLResultsFormat.mimetypevalue(), params);
-			LOGGER.info(EntityUtils.toString(response.getEntity()));			
-//			assertTrue(EntityUtils.toString(response.getEntity()).contains("<literal>Ez dago arriskurik"));			
+		    
+		    List<BasicHeader> headers = new ArrayList<BasicHeader>();
+		    headers.add(new BasicHeader("Accept", MIMEtype.SPARQLXMLResultsFormat.mimetypevalue()));
+		    headers.add(new BasicHeader("Content-Type", "application/x-www-form-urlencoded"));
+		    
+			HttpResponse response = HttpManager.getInstance().doPostRequest(hostsparql, headers, params);
+			assertTrue(EntityUtils.toString(response.getEntity()).contains("<literal>Ez dago arriskurik"));			
 		} catch (IOException e) {
 			LOGGER.error(e);
 		}
 	}
-	
-	// POST
-	
+		
 	@Test
 	public void GETSPARQLASKSPARQLXML() {
 		try {

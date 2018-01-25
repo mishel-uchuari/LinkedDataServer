@@ -26,7 +26,7 @@ import org.apache.http.client.methods.HttpGet;
 import org.apache.http.client.methods.HttpPost;
 import org.apache.http.entity.ByteArrayEntity;
 import org.apache.http.impl.client.DefaultHttpClient;
-
+import org.apache.http.message.BasicHeader;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -293,9 +293,12 @@ public class HttpManager {
 		return httpclient.execute(httpget);
 	}
 	
-	public HttpResponse doSimplePostRequest(String url, String accept, List params) throws ClientProtocolException, IOException {
+	public HttpResponse doPostRequest(String url, List<BasicHeader> headers, List params) throws ClientProtocolException, IOException {
 		HttpClient httpclient = new DefaultHttpClient();
 		HttpPost httpPost = new HttpPost(url);
+		for (BasicHeader header : headers){
+			httpPost.addHeader(header);
+		}
 	    httpPost.setEntity(new UrlEncodedFormEntity(params));		
 		return httpclient.execute(httpPost);
 	}

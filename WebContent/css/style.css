@@ -6,9 +6,9 @@
 /* Header
 -----------------------------------------------------------------------------*/
 .elementos-navbar {
-	width: 60%;
-	margin-left: 20%;
-	margin-right: 20%;
+	width: 70%;
+	margin-left: 15%;
+	margin-right: 15%;
 	background-color: white !important;
 	padding-right: 5px;
 	margin-top: 1%;
@@ -17,14 +17,14 @@
 /* Middle
 -----------------------------------------------------------------------------*/
 .middle {
-	margin-left: 20%;
-	margin-right: 20%;
+	margin-left: 15%;
+	margin-right: 15%;
 	background-color: white !important;
-	width: 60%;
+	width: 70%;
 }
 
 .space {
-	height: 8%;
+	height: 10%;
 	background: white !important;
 }
 
@@ -40,7 +40,7 @@ body {
 
 th, td {
 	background-color: white !important;
-	width: 20%;
+	width: 15%;
 }
 
 .table-striped>tbody>tr:nth-child(2n+1)>td, .table-striped>tbody>tr:nth-child(2n+1)>th
@@ -49,10 +49,10 @@ th, td {
 }
 
 .resource-info {
-	width: 60%;
+	width: 70%;
 	background: white !important;
-	margin-left: 20%;
-	margin-right: 20%;
+	margin-left: 15%;
+	margin-right: 15%;
 }
 
 h1 {
@@ -66,11 +66,32 @@ h1 {
 	display: -webkit-box !important;
 }
 
+#yasgui {
+	width: 70%;
+	margin-left: 15%;
+	margin-right: 15%;
+	margin-bottom: 5%;
+	background: white !important;
+}
+
+#yasr {
+	width: 70%;
+	margin-left: 15%;
+	margin-right: 15%;
+	background: white !important;
+}
+
+
+
+.errorResult, .errorHeader, .yasr_results, .yasr_header, .exception{
+	background: white !important;
+}
+
 .table {
-	margin-right: 20%;
-	margin-left: 20%;
+	margin-right: 15%;
+	margin-left: 15%;
 	padding-top: 10px;
-	width: 60% !important;
+	width: 70% !important;
 	background: white !important;
 }
 
@@ -82,6 +103,14 @@ h1 {
 .btn-group
 >
 .btn
+
+
+
+
+
+
+
+
 
 
 
@@ -111,6 +140,14 @@ h1 {
 
 
 
+
+
+
+
+
+
+
+
 :not
 
 
@@ -119,7 +156,15 @@ h1 {
 
 
 
+
+
+
+
  
+
+
+
+
 
 
 
@@ -136,7 +181,15 @@ h1 {
 
 
 
+
+
+
+
  
+
+
+
+
 
 
 
@@ -153,7 +206,15 @@ h1 {
 
 
 
+
+
+
+
  
+
+
+
+
 
 
 
@@ -170,7 +231,15 @@ h1 {
 
 
 
+
+
+
+
  
+
+
+
+
 
 
 
@@ -194,7 +263,19 @@ margin-right
 
 
 
+
+
+
+
+
+
+
+
 :
+
+
+
+
 
 
 
@@ -210,8 +291,20 @@ margin-right
 
 
 
+
+
+
+
 2
 rem
+
+
+
+
+
+
+
+
 
 
 
@@ -242,6 +335,14 @@ background
 
 
 
+
+
+
+
+
+
+
+
 :
 
 
@@ -250,7 +351,15 @@ background
 
 
 
+
+
+
+
  
+
+
+
+
 
 
 
@@ -266,7 +375,15 @@ white
 
 
 
+
+
+
+
  
+
+
+
+
 
 
 
@@ -290,16 +407,24 @@ important
 
 
 
+
+
+
+
+
+
+
+
 ;
 }
 /* Footer
 -----------------------------------------------------------------------------*/
 .footer {
 	background: #003da5 !important;
-	width: 60%;
-	margin-left: 20%;
+	width: 70%;
+	margin-left: 15%;
 	margin-bottom: 1%;
-	margin-right: 20%;
+	margin-right: 15%;
 	display: block;
 	text-align: center;
 }

@@ -1,0 +1,330 @@
+* {
+	background-color: #f2f2f2;
+	font-family: serif;
+}
+
+/* Header
+-----------------------------------------------------------------------------*/
+.elementos-navbar {
+	width: 60%;
+	margin-left: 20%;
+	margin-right: 20%;
+	background-color: white !important;
+	padding-right: 5px;
+	margin-top: 1%;
+	height: 15%
+}
+/* Middle
+-----------------------------------------------------------------------------*/
+.middle {
+	margin-left: 20%;
+	margin-right: 20%;
+	background-color: white !important;
+	width: 60%;
+}
+
+.space {
+	height: 8%;
+	background: white !important;
+}
+
+btn-primary {
+	float: right;
+	outline-offset: 15px;
+	margin-right: 2rem;
+}
+
+body {
+	background-color: #f2f2f2 !important;
+}
+
+th, td {
+	background-color: white !important;
+	width: 20%;
+}
+
+.table-striped>tbody>tr:nth-child(2n+1)>td, .table-striped>tbody>tr:nth-child(2n+1)>th
+	{
+	background-color: white;
+}
+
+.resource-info {
+	width: 60%;
+	background: white !important;
+	margin-left: 20%;
+	margin-right: 20%;
+}
+
+h1 {
+	background: white !important;
+	font-weight: bold !important;
+	font-size: 30px !important;
+}
+
+.resource {
+	background: white !important;
+	display: -webkit-box !important;
+}
+
+.table {
+	margin-right: 20%;
+	margin-left: 20%;
+	padding-top: 10px;
+	width: 60% !important;
+	background: white !important;
+}
+
+.btn-group {
+	float: right;
+	margin-top: 21px;
+}
+
+.btn-group
+>
+.btn
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+:first-child
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+:not
+
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+(
+:last-child
+
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+)
+:not
+
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+(
+.dropdown-toggle
+
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+){
+margin-right
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+:
+
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+2
+rem
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+;
+background
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+:
+
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+white
+
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+!
+important
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+;
+}
+/* Footer
+-----------------------------------------------------------------------------*/
+.footer {
+	background: #003da5 !important;
+	width: 60%;
+	margin-left: 20%;
+	margin-bottom: 1%;
+	margin-right: 20%;
+	display: block;
+	text-align: center;
+}
+
+.redes-sociales {
+	background: #003da5 !important;
+}
+
+.row-fluid {
+	width: 98%;
+	padding-left: 1%;
+	padding-right: 1%;
+	background: #003da5 !important;
+}
+
+ol.inline, ol.unstyled, ul.inline, ul.unstyled {
+	margin-left: 0;
+	list-style: none;
+}
+
+.pull-right {
+	float: right;
+}
+
+ol, ul {
+	padding: 0;
+	margin: 8px 0 8px 25px;
+}

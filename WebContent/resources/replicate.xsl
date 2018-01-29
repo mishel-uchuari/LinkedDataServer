@@ -9,7 +9,7 @@
 				<link href="https://fonts.googleapis.com/css?family=Bellefair"
 					rel="stylesheet"></link>
 				<!-- Mi hoja estilos -->
-				<link href="css/style.css" rel="stylesheet"></link>
+				<link href="/ROOT/css/style.css" rel="stylesheet"></link>
 				<!-- JQuery -->
 				<script src="http://code.jquery.com/jquery-latest.min.js"></script>
 				<link rel="stylesheet"
@@ -32,7 +32,7 @@
 			<body>
 				<header class="header">
 					<div class="elementos-navbar">
-						<img alt="Logo ayuntamiento San Sebastián" src="img/logo-vector-ayuntamiento-de-san-sebastian.jpg"
+						<img alt="Logo ayuntamiento San Sebastián" src="<%=request.getContextPath()%>/img/logo-vector-ayuntamiento-de-san-sebastian.jpg"
 							width="175" height="80"></img>
 						<div class="btn-group">
 							<button type="button" class="btn btn-primary btn-xs">SPARQLEndpoint</button>
@@ -65,7 +65,7 @@
 					<div class="space"></div>
 				</div>
 				<div class="footer">
-					<img alt="Logotipo Donostiako Udala" src="img/LOGO-blanco-sobre-azul.jpg"
+					<img alt="Logotipo Donostiako Udala" src="<%=request.getContextPath()%>/img/LOGO-blanco-sobre-azul.jpg"
 						width="200" height="150"></img>
 				</div>
 			</body>

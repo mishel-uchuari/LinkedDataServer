@@ -28,10 +28,6 @@
 				<title>
 					<xsl:value-of select="//rdfs:label" />
 				</title>
-				<script>
-				var htmlpath =$(location)[0].pathname;
-				console.log(htmlpath); 
-				</script>
 			</head>
 			<body>
 				<header class="header">

@@ -28,11 +28,16 @@
 				<title>
 					<xsl:value-of select="//rdfs:label" />
 				</title>
+				<script>
+				var htmlpath =$(location)[0].pathname;
+				console.log(htmlpath); 
+				</script>
 			</head>
 			<body>
 				<header class="header">
 					<div class="elementos-navbar">
-						<img alt="Logo ayuntamiento San Sebastián" src="<%=request.getContextPath()%>/img/logo-vector-ayuntamiento-de-san-sebastian.jpg"
+					<xsl:variable name="image-dir" select="'/img'"/>
+						<img alt="Logo ayuntamiento San Sebastián" src="/ROOT/img/logo-vector-ayuntamiento-de-san-sebastian.jpg"
 							width="175" height="80"></img>
 						<div class="btn-group">
 							<button type="button" class="btn btn-primary btn-xs">SPARQLEndpoint</button>
@@ -65,7 +70,7 @@
 					<div class="space"></div>
 				</div>
 				<div class="footer">
-					<img alt="Logotipo Donostiako Udala" src="<%=request.getContextPath()%>/img/LOGO-blanco-sobre-azul.jpg"
+					<img alt="Logotipo Donostiako Udala" src="/ROOT/img/LOGO-blanco-sobre-azul.jpg"
 						width="200" height="150"></img>
 				</div>
 			</body>

@@ -55,6 +55,11 @@ th, td {
 	margin-right: 15%;
 }
 
+.yasr table.dataTable td div{
+	background : white !important;
+}
+
+
 h1 {
 	background: white !important;
 	font-weight: bold !important;

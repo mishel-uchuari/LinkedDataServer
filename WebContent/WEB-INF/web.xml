@@ -1,21 +1,36 @@
-<web-app xmlns="http://java.sun.com/xml/ns/javaee" version="2.5">
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+	xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"
+	id="WebApp_ID" version="3.1">
+	<display-name>Linked Data Server</display-name>
 	<servlet>
-		<servlet-name>LinkedDataServer</servlet-name>
-		<servlet-class>es.eurohelp.opendata.LinkedDataServer</servlet-class>
+		<servlet-name>DefaultServlet</servlet-name>
+		<servlet-class>es.eurohelp.lod.server.DefaultServlet</servlet-class>
+		<load-on-startup>1</load-on-startup>
 	</servlet>
 	<servlet-mapping>
-		<servlet-name>LinkedDataServer</servlet-name>
-		<url-pattern>/resource/*</url-pattern>
+		<servlet-name>DefaultServlet</servlet-name>
+		<url-pattern></url-pattern>
 	</servlet-mapping>
-	<welcome-file-list>
-		<welcome-file>index.html</welcome-file>
-	</welcome-file-list>
-	<context-param>
-    	<param-name>internal-uri-base</param-name>
-    	<param-value>http://opendata.euskadi.eus/</param-value>
-	</context-param>
-	<context-param>
-    	<param-name>sparql-endpoint-query-url</param-name>
-    	<param-value>http://ckan.eurohelp.es:7200/repositories/opendata-euskadi?query=</param-value>
-	</context-param>
+	<!-- sparql servlet -->
+	<servlet>
+		<servlet-name>SparqlServlet</servlet-name>
+		<servlet-class>es.eurohelp.lod.server.SparqlServlet</servlet-class>
+		<load-on-startup>1</load-on-startup>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>SparqlServlet</servlet-name>
+		<url-pattern>/sparql</url-pattern>
+	</servlet-mapping>
+	<!-- resource servlet -->
+	<servlet>
+		<servlet-name>ResourceServlet</servlet-name>
+		<servlet-class>es.eurohelp.lod.server.ResourceServlet</servlet-class>
+		<load-on-startup>1</load-on-startup>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>ResourceServlet</servlet-name>
+		<url-pattern>/id/*</url-pattern>
+	</servlet-mapping>
 </web-app>

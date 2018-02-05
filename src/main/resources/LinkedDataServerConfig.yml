@@ -1,0 +1,21 @@
+# Common properties
+
+defaultpage: /pages/ldserver.html
+SPARQLRetrieveResourceQuery: DESCRIBE <{0}>
+SPARQLASKResourceQuery: ASK '{' '{' <{0}> ?p ?o '}' UNION  '{' ?s ?p <{0}> '}' '}'
+xslt: replicate.xsl
+SPARQLendpoint: sparql
+
+# Local properties
+
+triplestore: http://localhost:9999/blazegraph/namespace/replicate/sparql
+base: http://donostia.eus/data
+host: http://localhost:8080/ROOT/
+
+# Replicate properties
+
+#triplestore: http://haproxy/blazegraph/sparql
+#base: http://donostia.eus/data
+#host: http://localhost:8080/data/
+
+

@@ -1,0 +1,464 @@
+* {
+	background-color: #f2f2f2;
+	font-family: serif;
+}
+
+/* Header
+-----------------------------------------------------------------------------*/
+.elementos-navbar {
+	width: 70%;
+	margin-left: 15%;
+	margin-right: 15%;
+	background-color: white !important;
+	padding-right: 5px;
+	margin-top: 1%;
+	height: 15%
+}
+/* Middle
+-----------------------------------------------------------------------------*/
+.middle {
+	margin-left: 15%;
+	margin-right: 15%;
+	background-color: white !important;
+	width: 70%;
+}
+
+.space {
+	height: 10%;
+	background: white !important;
+}
+
+btn-primary {
+	float: right;
+	outline-offset: 15px;
+	margin-right: 2rem;
+}
+
+body {
+	background-color: #f2f2f2 !important;
+}
+
+th, td {
+	background-color: white !important;
+	width: 15%;
+}
+
+.table-striped>tbody>tr:nth-child(2n+1)>td, .table-striped>tbody>tr:nth-child(2n+1)>th
+	{
+	background-color: white !important;
+}
+
+.nonUri{
+	background: white !important;
+}
+
+.resource-info {
+	width: 70%;
+	background: white !important;
+	margin-left: 15%;
+	margin-right: 15%;
+}
+
+.yasr table.dataTable td div{
+	background : white !important;
+}
+
+
+h1 {
+	background: white !important;
+	font-weight: bold !important;
+	font-size: 30px !important;
+}
+
+.resource {
+	background: white !important;
+	display: -webkit-box !important;
+}
+
+#yasgui {
+	width: 70%;
+	margin-left: 15%;
+	margin-right: 15%;
+	margin-bottom: 5%;
+	background: white !important;
+}
+
+#yasr {
+	width: 70%;
+	margin-left: 15%;
+	margin-right: 15%;
+	background: white !important;
+}
+
+
+
+.errorResult, .errorHeader, .yasr_results, .yasr_header, .exception{
+	background: white !important;
+}
+
+.table {
+	margin-right: 15%;
+	margin-left: 15%;
+	padding-top: 10px;
+	width: 70% !important;
+	background: white !important;
+}
+
+.btn-group {
+	float: right;
+	margin-top: 21px;
+}
+
+.btn-group
+>
+.btn
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+:first-child
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+:not
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+(
+:last-child
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+)
+:not
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+(
+.dropdown-toggle
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+){
+margin-right
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+:
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+2
+rem
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+;
+background
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+:
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+white
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+!
+important
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+;
+}
+/* Footer
+-----------------------------------------------------------------------------*/
+.footer {
+	background: #003da5 !important;
+	width: 70%;
+	margin-left: 15%;
+	margin-bottom: 1%;
+	margin-right: 15%;
+	display: block;
+	text-align: center;
+}
+
+.redes-sociales {
+	background: #003da5 !important;
+}
+
+.row-fluid {
+	width: 98%;
+	padding-left: 1%;
+	padding-right: 1%;
+	background: #003da5 !important;
+}
+
+ol.inline, ol.unstyled, ul.inline, ul.unstyled {
+	margin-left: 0;
+	list-style: none;
+}
+
+.pull-right {
+	float: right;
+}
+
+ol, ul {
+	padding: 0;
+	margin: 8px 0 8px 25px;
+}

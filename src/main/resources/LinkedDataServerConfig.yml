@@ -15,7 +15,7 @@ SPARQLendpoint: sparql
 # Replicate properties
 
 triplestore: http://haproxy/blazegraph/sparql
-base: http://donostia.eus/data
-host: http://localhost:8080/data/
+base: http://donostia.eus/linkeddata
+host: http://localhost:8080/linkeddata/
 
 

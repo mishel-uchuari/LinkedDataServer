@@ -10,8 +10,7 @@
 	rel='stylesheet' type='text/css'></link>
 <link href='http://cdn.jsdelivr.net/yasr/2.10.8/yasr.min.css'
 	rel='stylesheet' type='text/css'></link>
-<title>Open Data Euskadi, el portal de datos abiertos del
-	Gobierno Vasco</title>
+<title>Linked Open Data Donostia: SPARQL endpoint</title>
 	<!-- JQuery -->
 				<script src="http://code.jquery.com/jquery-latest.min.js"></script>
 				<link rel="stylesheet"

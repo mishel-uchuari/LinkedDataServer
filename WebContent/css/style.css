@@ -79,8 +79,9 @@ h1 {
 	width: 70%;
 	margin-left: 15%;
 	margin-right: 15%;
-	margin-bottom: 5%;
+	margin-bottom: 1%;
 	background: white !important;
+	padding-top: 20px;
 }
 
 #yasr {
@@ -461,4 +462,209 @@ ol.inline, ol.unstyled, ul.inline, ul.unstyled {
 ol, ul {
 	padding: 0;
 	margin: 8px 0 8px 25px;
+}
+
+/*** custom code window ***/
+
+h1{
+    float: right;
+    font-family: roboto;
+    margin-right: 2%;
+    color: #04488f
+}
+
+.yasqe {
+    position: relative;
+    background: transparent;
+}
+
+.yasqe:before {
+    content: "Introduzca su consulta de Sparql";
+    position: absolute;
+    z-index: 9999;
+    text-transform: uppercase;
+    font-family: roboto;
+    font-weight: bold;
+    margin-top: 13px;
+    margin-left: 14px;
+    color: #fff;
+    font-size: 16px;
+}
+
+.yasqe .CodeMirror {
+    line-height: 1.5em;
+    border: 0px solid #ddd;
+    border-radius: 10px;
+    background: transparent!important;
+    box-shadow: 10px 10px 12px #eee;
+    border-top: 45px solid  #04488f;
+}
+.yasqe .CodeMirror span {
+    font-family: 'Source Code Pro', monospace;
+
+}
+
+.CodeMirror-gutters {
+    background: #f2f2f2!important;
+}
+
+.yasr .yasr_btn.selected, .yasr .yasr_btn:focus {
+    color: #fff;
+    outline: 0;
+    background-color: #04488f;
+    border-color: #04488f;
+}
+
+.yasr .yasr_btn {font-family:Roboto;}
+
+.yasr_header{
+    display: block;
+    width: 100%;
+    margin-bottom: 40px;
+    text-align: center;
+}
+
+.yasr .yasr_btn {
+    color: #333;
+    border: 1px solid #ccc;
+    text-align: center;
+    cursor: pointer;
+    white-space: nowrap;
+    padding: 6px 12px;
+    border-radius: 4px;
+    -webkit-user-select: none;
+    user-select: none;
+    -webkit-appearance: button;
+    overflow: visible;
+    box-sizing: border-box;
+    margin-right: 8px;
+    border-radius: 5px!important;
+    
+}
+
+.yasr_btnGroup{
+    background: white;
+}
+
+.yasr a {
+    color: #04488f;
+    text-decoration: none;
+    font-family: roboto!important;
+    font-weight: bold;}
+    
+    .yasr .dataTables_wrapper {
+    margin-top: 10px;
+    border-radius: 8px;
+    margin-bottom: 40px!important;
+    background: transparent!important;
+}
+
+
+.yasr .dataTables_wrapper .dataTables_filter, .yasr .dataTables_wrapper .dataTables_info, .yasr .dataTables_wrapper .dataTables_length, .yasr .dataTables_wrapper .dataTables_paginate, .yasr .dataTables_wrapper .dataTables_processing, .yasr .pvtUi {
+    color: #333;
+    font-family: Roboto!important;
+        background: transparent;
+}
+
+.yasr table.dataTable tr:nth-child(even) td {
+    background-color: #d6d6d630!important;
+}
+
+.yasr table.dataTable td div {
+    background: transparent !important;
+}
+
+.yasr table.dataTable tbody tr td:first-child {
+    text-align: center;
+    font-size: 20px;
+    font-family: Roboto;
+    font-weight: bold;
+    color: #04488f;
+}
+
+.yasr table.dataTable td {
+    border-top: none;
+}
+
+.yasr .pvtGrandTotal, .yasr .pvtTotal, .yasr table.dataTable tfoot th, .yasr table.dataTable thead th {
+    font-weight: 700;
+    background: #04488f!important;
+}
+
+.yasr table.dataTable thead th span {
+    margin-left: 5px;
+    background: transparent;
+    color: white;
+    font-family: Roboto;
+}
+
+.yasr table.dataTable.no-footer.resultsTable {
+    border-bottom: 0px solid #ddd;
+    border-radius: 10px!important;
+    overflow: hidden;
+        box-shadow: 10px 10px 45px #ddd;
+}
+
+.yasr .dataTables_wrapper .dataTables_length label, .yasr .dataTables_wrapper .dataTables_length select {
+    vertical-align: middle;
+    background: transparent;
+    font-family: Roboto;
+    margin-right: 10px;
+    color: #333;
+}
+
+.JCLRLastGrip {
+    position: absolute;
+    width: 1px;
+    background: transparent;
+}
+
+.yasr table.dataTable thead th {
+    border-bottom: 10px solid #04488f;}
+    
+.sortIcons svg{
+    background: #04488f;
+    margin-top:5px;
+}
+
+.sortIcons path {
+    fill: #fff!important;
+}
+
+.yasr .svgImg {
+    display: inline-block;
+    bottom: -2px;
+    background: #04488f;}
+    
+    
+ .yasqe .yasqe_buttons {
+    position: absolute;
+    right: 22px!important;
+    z-index: 5;
+    background: #04488f;
+    padding: 13px 16px;
+    border-radius: 0 0 10px 10px;
+    top: -2px;
+    text-align: center;
+}
+
+.yasqe_buttons svg:not(:root) {
+    overflow: hidden;
+    background: #04488f;
+}
+
+.query_valid svg{
+    fill: #FFF;
+}
+
+.yasqe_share svg{
+    fill: #FFF;
+}
+
+.yasqe .yasqe_buttons div.yasqe_sharePopup textarea {
+    width: 100%;
+    background: #333;
+    color: #fff;
+    font-family: Roboto;
+    padding: 9px;
 }

@@ -71,9 +71,22 @@ h1 {
 }
 
 .resource {
-	background: white !important;
-	display: -webkit-box !important;
+    background: white !important;
+    display: -webkit-box !important;
+    width: 90%;
+    margin-left: 5%;
+    font-size: 36px;
+    font-family: Roboto!important;
+    border-bottom: 1px dotted #CCC;
 }
+
+.resource a, .resource p {
+    font-family: Roboto!important;
+    margin-right: 10px;
+    padding: 0px 10px;
+}
+
+.resource p{background: none; color:#ccc;}
 
 #yasgui {
 	width: 70%;
@@ -473,6 +486,27 @@ h1{
     color: #04488f
 }
 
+h1 a {
+    font-size: 16px;
+    padding: 10px;
+    background: #000000;
+    font-family: Roboto;
+    margin-right: 10px;
+    color: #FFF;
+    border-radius: 5px;
+}
+
+h1 a:hover {
+    font-size: 16px;
+    padding: 10px;
+    background: #04488f;
+    font-family: Roboto;
+    margin-right: 10px;
+    color: #FFF;
+    border-radius: 5px;
+    text-decoration:none;
+}
+
 .yasqe {
     position: relative;
     background: transparent;
@@ -668,3 +702,43 @@ h1{
     font-family: Roboto;
     padding: 9px;
 }
+
+/*** properties table ***/
+
+
+#proptable.table {
+    margin-right: 7%;
+    margin-left: 7%;
+    padding-top: 10px;
+    width: 86% !important;
+    background: white !important;
+    font-family: Roboto!important;
+    border-radius: 5px;
+    overflow: hidden;
+    box-shadow: 1px 1px 21px #eee;
+}
+
+#proptable>thead>tr>th {
+    vertical-align: bottom;
+    border-bottom: 0px solid #003da5;
+}
+
+#proptable thead tr th{
+	background: #003da5!important;
+	font-family: Roboto!important;
+	color:#FFF;
+}
+
+#proptable tbody tr td, #proptable tbody tr td a{
+
+	font-family: Roboto!important;
+	background: transparent!important;
+
+}
+#proptable tbody tr td{
+    padding: 10px 20px;
+    border:none!important;}
+
+
+#proptable tbody tr:nth-child(even) {background: #eee!important;}
+#proptable tbody tr:nth-child(odd) {background: #FFF!important;}

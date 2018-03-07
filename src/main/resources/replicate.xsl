@@ -6,10 +6,7 @@
 		<html>
 			<head>
 				<!-- Fuente -->
-				<link href="https://fonts.googleapis.com/css?family=Bellefair"
-					rel="stylesheet"></link>
-				<!-- Mi hoja estilos -->
-				<link href="/linkeddata/css/style.css" rel="stylesheet"></link>
+				<link href="https://fonts.googleapis.com/css?family=Bellefair" rel="stylesheet"></link>
 				<!-- JQuery -->
 				<script src="http://code.jquery.com/jquery-latest.min.js"></script>
 				<link rel="stylesheet"
@@ -25,6 +22,7 @@
 					src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
 					integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
 					crossorigin="anonymous"></script>
+					<link href="/linkeddata/css/style.css" rel="stylesheet"></link>
 				<title>
 					<xsl:value-of select="//rdfs:label" />
 				</title>
@@ -33,11 +31,8 @@
 				<header class="header">
 					<div class="elementos-navbar">
 					<xsl:variable name="image-dir" select="'/img'"/>
-						<img alt="Logo ayuntamiento San Sebastián" src="/linkeddata/img/logo-vector-ayuntamiento-de-san-sebastian.jpg"
-							width="175" height="80"></img>
-						<div class="btn-group">
-							<button type="button" class="btn btn-primary btn-xs">SPARQLEndpoint</button>
-						</div>
+						<img alt="Logo ayuntamiento San Sebastián" src="/linkeddata/img/logo-vector-ayuntamiento-de-san-sebastian.jpg" width="175" height="80"></img>
+				<h1><a href="">GO TO Sparql endpoint</a></h1>
 					</div>
 				</header>
 				<div class="resource-info">
@@ -45,16 +40,16 @@
 						<xsl:value-of select="rdf:RDF/rdf:Description/@rdf:about" />
 					</xsl:variable>
 					<div class="resource">
-						<h1>
-							<a href="{$recurso}">
+						<p>Enlace del recurso:</p>
+							<a class="ref-link" href="{$recurso}">
 								<xsl:value-of select="//rdfs:label" />
 							</a>
-						</h1>
+						
 					</div>
 				</div>
 				<div class="middle">
 					<div class="space"></div>
-					<table id="table" class="table">
+					<table id="proptable" class="table">
 						<thead class="thead-dark">
 							<tr>
 								<th>Property</th>
@@ -66,8 +61,7 @@
 					<div class="space"></div>
 				</div>
 				<div class="footer">
-					<img alt="Logotipo Donostiako Udala" src="/linkeddata/img/LOGO-blanco-sobre-azul.jpg"
-						width="200" height="150"></img>
+					<img alt="Logotipo Donostiako Udala" src="/linkeddata/img/LOGO-blanco-sobre-azul.jpg" width="200" height="150"></img>
 				</div>
 			</body>
 		</html>

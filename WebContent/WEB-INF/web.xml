@@ -13,7 +13,6 @@
 		<servlet-name>DefaultServlet</servlet-name>
 		<url-pattern></url-pattern>
 	</servlet-mapping>
-	<!-- sparql servlet -->
 	<servlet>
 		<servlet-name>SparqlServlet</servlet-name>
 		<servlet-class>es.eurohelp.lod.server.SparqlServlet</servlet-class>
@@ -23,7 +22,6 @@
 		<servlet-name>SparqlServlet</servlet-name>
 		<url-pattern>/sparql</url-pattern>
 	</servlet-mapping>
-	<!-- resource servlet -->
 	<servlet>
 		<servlet-name>ResourceServlet</servlet-name>
 		<servlet-class>es.eurohelp.lod.server.ResourceServlet</servlet-class>
@@ -31,6 +29,7 @@
 	</servlet>
 	<servlet-mapping>
 		<servlet-name>ResourceServlet</servlet-name>
-		<url-pattern>/id/*</url-pattern>
+		<url-pattern>/resource/*</url-pattern>
+		<url-pattern>/public-sector/*</url-pattern>
 	</servlet-mapping>
 </web-app>

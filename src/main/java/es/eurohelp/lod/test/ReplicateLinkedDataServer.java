@@ -37,7 +37,7 @@ public class ReplicateLinkedDataServer {
 	private static String host = null;
 	private static String hostsparql = null;
 	private static String queryURLParam = "?query=";
-	private static String resource = "id/medio-ambiente/medicion/urumea-txominenea-riesgo-2017-11-10-02-10";
+	private static String resource = "history/mass-grave/castro-urdiales-otras";
 	private static String nonexistentresource = "id/trololo";
 	private static String sparqlSELECT = "SELECT * WHERE { ?sub ?pred ?obj } LIMIT 3 ";
 	private static String sparqlASK = "ASK { ?s ?p <http://dbpedia.org/resource/Bilbao> }";

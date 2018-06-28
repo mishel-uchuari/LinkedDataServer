@@ -7,19 +7,9 @@ xslt: replicate.xsl
 SPARQLendpoint: sparql
 
 #Global properties
-triplestore: http://localhost:9999/blazegraph/namespace/guerracivileuskadi/sparql
-host: http://localhost:8080/ROOT/
-
-#Datasets resources properties
-
-base: http://guerracivileuskadi.eurohelp.es
-
-
-
-
-#Predicates properties
-
-# Replicate properties
+triplestore: http://localhost:8080/blazegraph/namespace/kb/sparql
+host: http://guerracivileuskadi.eurohelp.es/linkeddata
+base: http://guerracivileuskadi.eurohelp.es/linkeddata
 
 #triplestore: http://haproxy/blazegraph/sparql
 #base: http://donostia.eus/data

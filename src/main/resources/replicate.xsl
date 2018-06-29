@@ -87,13 +87,19 @@
             <td>
                 <xsl:value-of select="name()" />
             </td>
+            
             <xsl:choose>
                 <xsl:when test="not($href = '')">
+                <xsl:if test="not(contains($href, 'http://guerracivileuskadi.eurohelp.es/linkeddata/resource/euskadipedia/death-mode/')) and not(contains($href, 'http://guerracivileuskadi.eurohelp.es/linkeddata/def/'))">
                     <td>
                         <a href="{$href}">
                             <xsl:value-of select="$href" />
                         </a>
-                    </td>
+                    </td></xsl:if>
+                     <xsl:if test="contains($href, 'http://guerracivileuskadi.eurohelp.es/linkeddata/resource/euskadipedia/death-mode/') or contains($href, 'http://guerracivileuskadi.eurohelp.es/linkeddata/def/')">
+                    <td>
+                            <xsl:value-of select="$href" />
+                    </td></xsl:if>
                 </xsl:when>
                 <xsl:when test="$href = ''">
                     <td>

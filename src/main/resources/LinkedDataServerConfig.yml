@@ -14,4 +14,3 @@ base: http://guerracivileuskadi.eurohelp.es/linkeddata
 #triplestore: http://haproxy/blazegraph/sparql
 #base: http://donostia.eus/data
 #host: http://localhost:8080/data/
-
